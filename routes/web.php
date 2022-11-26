@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'add'])->name('contact.add');
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
     

@@ -23,7 +23,17 @@
 
 <body>
 
-  @yield('content')
+  @include('layouts.partials.auth-header-navbar')
+
+  <div class="auth d-flex justify-content-center align-items-center vh-100">
+    <div class="auth__inner d-flex flex-column col-4">
+      <h2 class="auth__title align-self-center mb-5">@yield('auth')</h2>
+
+      @yield('content')
+
+    </div>
+  </div>
+
 
 
 <!-- Start Script -->

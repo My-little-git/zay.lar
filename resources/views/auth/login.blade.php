@@ -1,9 +1,10 @@
 @extends('layouts.auth-master')
 
+@section('auth')
+Вход
+@endsection
+
 @section('content')
-<div class="auth mt-5 d-flex justify-content-center">
-  <div class="auth__inner d-flex flex-column col-6">
-    <h2 class="auth__title align-self-center mb-5">Вход</h3>
     <form method="POST" action="{{ route('login.login')}}" class="auth__form d-flex flex-column">
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
@@ -25,6 +26,4 @@
       </div>
       @csrf
     </form>
-  </div>
-</div>
 @endsection

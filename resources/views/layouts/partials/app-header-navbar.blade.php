@@ -21,7 +21,7 @@
 
 
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
+    <header class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
             <a class="navbar-brand text-success logo h1 align-self-center" href="/index.php">
@@ -35,44 +35,18 @@
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        {{-- <?//php if (isset($_SESSION['admin']) && $_SESSION['admin']): ?>
-                            <li class="nav-item">
-                                <a href="/admin/products.php" class="nav-link">Товары</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/admin/categories.php" class="nav-link">Категории</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/admin/users.php" class="nav-link">Пользователи</a>
-                            </li>
-                        <?//php else: ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/index.php">Главная</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/about.php">О нас</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/shop.php">Каталог</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/contact.php">Контакты</a>
-                            </li>
-                        <?//php endif; ?> --}}
-                        @auth
-                           <li class="nav-item">
-                                <a class="nav-link" href="/index.php">Главная</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/about.php">О нас</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/shop.php">Каталог</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/contact.php">Контакты</a>
-                            </li> 
-                        @endauth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home.index') }}">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">О нас</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Каталог</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact.show') }}">Контакты</a>
+                        </li> 
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -106,5 +80,5 @@
             </div>
 
         </div>
-    </nav>
+    </header>
     <!-- Close Header -->

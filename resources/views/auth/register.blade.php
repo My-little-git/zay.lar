@@ -1,9 +1,10 @@
 @extends('layouts.auth-master')
 
+@section('auth')
+Регистрация
+@endsection
+
 @section('content')
-<div class="auth mt-5 d-flex justify-content-center">
-  <div class="auth__inner d-flex flex-column col-6">
-    <h2 class="auth__title align-self-center mb-5">Регистрация</h3>
     <form method="POST" action="{{ route('register.register') }}" class="auth__form d-flex flex-column">
       <div class="mb-3 row">
         <div class="col-5">
@@ -50,6 +51,4 @@
       </div>
       @csrf
     </form>
-  </div>
-</div>
 @endsection

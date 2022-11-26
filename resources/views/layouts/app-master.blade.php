@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Zay Shop eCommerce HTML CSS Template</title>
+    <title>Zay Shop | @yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,11 +23,11 @@
 
 <body>
 
-  @include('layouts.partials.header-navbar')
+  @include('layouts.partials.app-header-navbar')
 
   @yield('content')
 
-  @include('layouts.partials.footer-navbar')
+  @include('layouts.partials.app-footer-navbar')
 
 
 <!-- Start Script -->
