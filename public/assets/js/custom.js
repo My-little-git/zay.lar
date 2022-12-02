@@ -36,19 +36,30 @@ function renderImg(image){
   }
 }
 
-dataName.addEventListener('input', () => {
-  editExample(exampleName, dataName, 'Название')
-})
+if (exampleName){
+  dataName.addEventListener("input", () => {
+      editExample(exampleName, dataName, "Название");
+  });
 
-dataPrice.addEventListener('input', () => {
-  editExample(examplePrice, dataPrice, 'Цена')
-})
+  dataPrice.addEventListener("input", () => {
+      editExample(examplePrice, dataPrice, "Цена");
+  });
 
-dataDescription.addEventListener('input', () => {
-  editExample(exampleDescription, dataDescription, 'Описание')
-})
+  dataDescription.addEventListener("input", () => {
+      editExample(exampleDescription, dataDescription, "Описание");
+  });
 
-dataImg.addEventListener('change', () => {
-  let file = data.files[0];
+  dataImg.addEventListener("change", () => {
+      let file = data.files[0];
+  });
+}
 
-})
+// Msg
+
+const msgAlert = document.querySelector('.msg__alert')
+
+if (msgAlert){
+  setTimeout(() => {
+      msgAlert.style.display = "none";
+  }, 3000);
+}
