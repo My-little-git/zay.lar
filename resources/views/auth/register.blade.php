@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form method="POST" action="{{ route('register.register') }}" class="auth__form d-flex flex-column">
+    <form method="POST" action="{{ route('register.registerUser') }}" class="auth__form d-flex flex-column">
       <div class="mb-3 row">
         <div class="col-5">
           <label for="name">Имя</label>

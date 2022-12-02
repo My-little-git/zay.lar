@@ -1,7 +1,10 @@
 @extends('layouts.app-master')
 
 @section('content')
-hi
+
+<?php
+// print_r($sss);
+?>
 <br>
 <br>
 @endsection

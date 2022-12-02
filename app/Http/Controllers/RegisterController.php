@@ -13,12 +13,18 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function register(RegisterRequest $request)
+    public function registerUser(RegisterRequest $request)
     {
+
         $user = User::create($request->validated());
 
         auth()->login($user);
 
-        return redirect('/')->with('success', 'Аккаунт успешно зарегестрирован');
+        return redirect('/')->with('success', 'Аккаунт успешно зарегестрирован')->with('sss', $request);
+    }
+
+    public function registerAdmin()
+    {
+        
     }
 }

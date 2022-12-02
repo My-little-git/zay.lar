@@ -26,7 +26,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     {
 
         Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
-        Route::post('/register', [RegisterController::class, 'register'])->name('register.register');
+        Route::post('/register', [RegisterController::class, 'registerUser'])->name('register.registerUser');
 
         Route::get('/login', [LoginController::class, 'show'])->name('login.show');
         Route::post('/login', [LoginController::class, 'login'])->name('login.login');
