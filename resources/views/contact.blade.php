@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+
+
+    
     <!-- Start Content Page -->
     <div class="container-fluid bg-light py-5">
         <div class="col-md-6 m-auto text-center">
@@ -42,30 +45,48 @@
     <!-- Start Contact -->
     <div class="container py-5">
         <div class="row py-5">
-            <form class="col-md-9 m-auto" method="post" role="form" action="/php_scripts/contact_form.php">
+            <form class="col-md-9 m-auto" method="POST" role="form" action="{{ route('contact.add') }}">
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputname">Имя</label>
+                        <label for="inputname">Имя*</label>
                         <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Имя">
+                        @if($errors->has('name'))
+                            <span class="text-danger text-left fs-6">{{ $errors->first('name') }}</span>
+                        @endif
                     </div>
                     <div class="form-group col-md-6 mb-3">
-                        <label for="inputemail">Email</label>
+                        <label for="inputemail">Email*</label>
                         <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Email">
+                        @if($errors->has('email'))
+                            <span class="text-danger text-left fs-6">{{ $errors->first('email') }}</span>
+                        @endif
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="inputsubject">Тема</label>
-                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Тема">
+                    <label for="inputsubject">Тема*</label>
+                    <select name="subject_id" id="subject" class="form-select">
+                        <option style="display:none" selected disabled></option>
+                        @foreach ($subjects as $subject)
+                            <option value="{{ $subject['id'] }}">{{ $subject['title']}}</option>   
+                        @endforeach
+                    </select>
+                    @if($errors->has('subject_id'))
+                        <span class="text-danger text-left fs-6">{{ $errors->first('subject_id') }}</span>
+                    @endif
                 </div>
                 <div class="mb-3">
-                    <label for="inputmessage">Текст</label>
+                    <label for="inputmessage">Текст*</label>
                     <textarea class="form-control mt-1" id="message" name="message" placeholder="Текст" rows="8"></textarea>
+                    @if($errors->has('message'))
+                        <span class="text-danger text-left fs-6">{{ $errors->first('message') }}</span>
+                    @endif
                 </div>
                 <div class="row">
                     <div class="col text-end mt-2">
                         <button type="submit" class="btn btn-success btn-lg px-3">Отправить</button>
                     </div>
                 </div>
+                @csrf
             </form>
         </div>
     </div>

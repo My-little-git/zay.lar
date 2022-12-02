@@ -16,7 +16,7 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $credentials = $request->getCredentials();
+        $credentials = $request->validated();
 
         if (!Auth::validate($credentials)){
             return redirect()->to('login')->withErrors(trans('auth.failed'));
@@ -26,18 +26,13 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        return $this->authenticated($request, $user);
+        return redirect()->intended();
     }
 
     public function logout()
     {
-        Session::flush();
         Auth::logout();
+        Session::flush();
         return redirect('login');
-    }
-
-    protected function authenticated(Request $request, $user)
-    {
-        return redirect()->intended();
     }
 }

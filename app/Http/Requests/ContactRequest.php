@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-// use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
-class LoginRequest extends FormRequest
+class ContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +24,10 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email:rfc,dns',
-            'password' => 'required|min:8'
+            'name' => 'required|min:2|max:60',
+            'email' => 'required|email',
+            'subject_id' => 'required',
+            'message' => 'required|min:5|max:1000'
         ];
     }
 }

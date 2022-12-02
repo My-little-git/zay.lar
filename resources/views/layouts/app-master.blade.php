@@ -24,6 +24,7 @@
 <body>
 
   @include('layouts.partials.app-header-navbar')
+  @include('layouts.partials.msg')
 
   @yield('content')
 
