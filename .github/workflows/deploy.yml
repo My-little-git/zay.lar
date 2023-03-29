@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone repo
+        uses: actions/checkout@v3
+        
+      - run: set -eu
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
+        
+      - run: chmod 600 "$HOME/.ssh/key"
+      
+      
+      - run: composer update
+      - run: mv .env.example .env
+      - run: php artisan key:generate
+    
+      - run: scp -i $HOME/.ssh/key -r . root@45.128.207.94:/var/www/www-root/data/www/vlites.ru
