@@ -16,7 +16,7 @@ jobs:
       - run: mkdir $HOME/.ssh
       
       - env:
-          KEY: ${{ secrets.key }}
+          KEY: ${{ secrets.KEY }}
         run: echo $KEY > "$HOME/.ssh/id_rsa"
         
 #       - run: chmod 600 "$HOME/.ssh/key"
