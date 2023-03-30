@@ -18,7 +18,14 @@ jobs:
 
 #       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/id_rsa"
       
-      - run: echo ${{ secrets.SSH_PRIVATE_KEY }} | sed 's/./& /g'
+      - name: Set env as secret
+        env:
+          MY_VAL: ${{ secrets.PROJECT_FOLDER }}
+        run: |
+          import os
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+        shell: python
         
 #       - run: chmod 600 "$HOME/.ssh/key"
       
