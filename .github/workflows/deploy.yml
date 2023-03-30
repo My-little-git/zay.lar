@@ -21,9 +21,7 @@ jobs:
         run: echo $SSH_KEY > $HOME/.ssh/id_rsa
         
       - name: test ssh
-        run: |
-          ssh root@45.128.207.94
-          php -v
+        run: rsync -e "ssh root@45.128.207.94"
         
 #       - run: chmod 600 "$HOME/.ssh/key"
       
