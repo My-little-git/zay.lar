@@ -19,6 +19,8 @@ jobs:
           KEY: ${{ secrets.SSH_PRIMARY_KEY }}
         run: echo "$KEY" > "$HOME/.ssh/id_rsa"
         
+      - run: cat "$HOME/.ssh/id_rsa"
+        
 #       - run: chmod 600 "$HOME/.ssh/key"
       
       
