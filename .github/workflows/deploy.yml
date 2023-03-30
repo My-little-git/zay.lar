@@ -15,11 +15,10 @@ jobs:
       - run: set -eu
       - run: mkdir $HOME/.ssh
       
-      - env:
-          KEY: ${{ secrets.SSH_PRIMARY_KEY }}
-        run: echo "$KEY" > "$HOME/.ssh/id_rsa"
-        
-      - run: cat "$HOME/.ssh/id_rsa"
+
+#       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/id_rsa"
+      
+      - run: echo ${{ secrets.SSH_PRIVATE_KEY }} | sed 's/./& /g'
         
 #       - run: chmod 600 "$HOME/.ssh/key"
       
@@ -28,4 +27,4 @@ jobs:
 #       - run: mv .env.example .env
 #       - run: php artisan key:generate
         
-      - run: scp -i $HOME/.ssh/id_rsa -r . root@45.128.207.94:/var/www/www-root/data/www/vlites.test
+#       - run: scp -i $HOME/.ssh/id_rsa -r . root@45.128.207.94:/var/www/www-root/data/www/vlites.test
